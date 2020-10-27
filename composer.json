@@ -4,6 +4,8 @@
   "type": "yii2-extension",
   "keywords": ["yii2","extension","backend","bootsprap4","admin","gentelella","theme","asset"],
   "license": "Apache-2.0",
+  "version": "1.0.1",
+  "minimum-stability":"stable",
   "authors": [
         {
             "name": "Ramprasad Moharana",
