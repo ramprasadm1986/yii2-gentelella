@@ -14,5 +14,6 @@ class ThemeAsset extends AssetBundle
         'ramprasadm1986\gentelella\assets\BootstrapProgressbar',
         'ramprasadm1986\gentelella\assets\ThemeBuildAsset',
         'ramprasadm1986\gentelella\assets\ThemeSrcAsset',
+        'ramprasadm1986\gentelella\assets\ThemeVendorAsset',
     ];
 }
