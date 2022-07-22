@@ -4,8 +4,8 @@
   "type": "yii2-extension",
   "keywords": ["yii2","extension","backend","bootsprap4","admin","gentelella","theme","asset"],
   "license": "Apache-2.0",
-  "version": "1.0.2",
-  "minimum-stability":"stable",
+  "version": "1.0.3",
+  "minimum-stability":"beta",
   "authors": [
         {
             "name": "Ramprasad Moharana",
@@ -16,8 +16,8 @@
     "php": ">=5.4.0",
     "yiisoft/yii2": "~2.0.0",
     "yiisoft/yii2-bootstrap4": "^2.0.0",
-    "rmrevin/yii2-fontawesome": "~3.0",
-    "bower-asset/gentelella": "*"
+    "rmrevin/yii2-fontawesome": "^3.0",
+    "bower-asset/gentelella": "^2.0-beta2"
   },
   "autoload": {
     "psr-4": {
