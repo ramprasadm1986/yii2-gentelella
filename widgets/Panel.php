@@ -25,6 +25,11 @@ class Panel extends Widget
     public $header;
 
     /**
+     * @var string the icon prefix
+     */
+    public $icon_prefix;
+    
+    /**
      * @var string the icon name
      */
     public $icon;
@@ -49,6 +54,9 @@ class Panel extends Widget
      *   or a string representing the dropdown menu.
      */
     public $headerMenu = [];
+    
+    
+    public $buttons = [];
 
     /**
      * Init tool buttons
@@ -58,7 +66,7 @@ class Panel extends Widget
         if ($this->expandable === true || $this->collapsable === true) {
             $this->tools[] = [
                 'encode' => false,
-                'label' => new Icon('chevron-' . ($this->expandable === true ? 'down' : 'up')),
+                'label' => new Icon($this->icon_prefix,'chevron-' . ($this->expandable === true ? 'down' : 'up')),
                 'linkOptions' => ['class' => 'collapse-link'],
                 'url' => null,
             ];
@@ -67,13 +75,13 @@ class Panel extends Widget
             $this->tools[] = [
                 'encode' => false,
                 'items' => $this->headerMenu,
-                'label' => new Icon('wrench'),
+                'label' => new Icon($this->icon_prefix,'wrench'),
             ];
         }
         if ($this->removable === true) {
             $this->tools[] = [
                 'encode' => false,
-                'label' => new Icon('close'),
+                'label' => new Icon($this->icon_prefix,$this->icon_prefix,'close'),
                 'linkOptions' => ['class' => 'close-link'],
                 'url' => null,
             ];
@@ -91,7 +99,7 @@ class Panel extends Widget
         if ($this->header !== null) {
             $this->initTools();
             echo Html::beginTag('div', ['class' => 'x_title']);
-            echo Html::tag('h2', ($this->icon !== null ? new Icon($this->icon) . ' ' : '') . $this->header);
+            echo Html::tag('h2', ($this->icon !== null ? new Icon($this->icon_prefix,$this->icon) . ' ' : '') . $this->header);
             if (empty($this->tools) === false) {
                 echo Nav::widget(
                     [
@@ -102,6 +110,12 @@ class Panel extends Widget
                         ],
                     ]
                 );
+            }
+            if (empty($this->buttons) === false) {
+                echo Html::beginTag('div', ['class' => 'x_buttons float-right']);
+                    foreach($this->buttons as $buttons)
+                        echo $buttons;
+                echo Html::endTag('div');
             }
             echo Html::tag('div', null, ['class' => 'clearfix']);
             echo Html::endTag('div');
